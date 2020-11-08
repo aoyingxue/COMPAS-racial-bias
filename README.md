@@ -1,4 +1,4 @@
-# COMPAS-racial-bias
+# COMPAS Racial Bias
  Azure Hackathon: COMPAS Racial Bias and Predict Scores
 
 ## Authors
