@@ -66,7 +66,6 @@ def main():
 ###### Functions ######
 
 # Read a written markdown content available as a string
-@st.cache
 def get_file_content_as_string(path):
     with open(path, "r") as file:
         data = file.read()
