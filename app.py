@@ -1,38 +1,69 @@
-# import packages
+# Packages
 import streamlit as st
 import pandas as pd
 import numpy as np
 import os, urllib
+
+# URLError workaround
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # start execution in a main() function
 def main():
     # Navigation pages: HOME, Descriptive Analysis, Regression Model, Score Prediction, ABOUT
     
     # Render MARKDOWN 
-    readme_text = st.markdown(get_file_content_as_string("README.md"))
+    # readme_text = st.markdown(get_file_content_as_string("README.md"))
+    home_text=st.markdown(get_file_content_as_string("pages/home.md"))
 
 
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
-    st.sidebar.title("What to do")
-    app_mode = st.sidebar.selectbox("Choose the app mode",
-        ["Show instructions", "Run the app", "Show the source code"])
-    if app_mode == "Show instructions":
-        st.sidebar.success('To continue select "Run the app".')
-    elif app_mode == "Show the source code":
-        readme_text.empty()
-        st.code(get_file_content_as_string("streamlit_app.py"))
-    elif app_mode == "Run the app":
-        readme_text.empty()
-        run_the_app()
+    st.sidebar.title("Navigation")
+    app_mode = st.sidebar.selectbox("",
+        ["HOME", "Descriptive Analysis", "Regression Model", "Score Prediction", "ABOUT"])
+    if app_mode == "HOME":
+        st.sidebar.success("To continue, select the page you'd like to read.")
+    elif app_mode == "Descriptive Analysis":
+        # empty the home page 
+        home_text.empty()
+        st.title("Descriptive Analysis")
+        descriptive_analysis() # print out the descriptive page
+        # st.code(get_file_content_as_string("streamlit_app.py"))
+    elif app_mode == "Regression Model":
+        # empty the home page 
+        home_text.empty()
+        # function to run the model
+        run_the_model()
+    elif app_mode == "Score Prediction":
+        # empty the home page 
+        home_text.empty()
+        # function to run the prediction
+        run_the_prediction()
+    elif app_mode == "ABOUT":
+        # empty the home page 
+        home_text.empty()
 
+
+
+###### Functions ######
+
+# Read a written markdown content available as a string
+# @st.cache()
+def get_file_content_as_string(path):
+    with open(path, 'r') as file:
+        data = file.read()
+    return data
+
+def descriptive_analysis():
+    st.title("Descriptive Analysis")
+
+def run_the_model():
+    st.title("Regression Model")
+
+def run_the_prediction():
+    st.title("Score Prediction")
+
+
+# Execute
 if __name__ == "__main__":
     main()
-
-
-# Functions
-# Download a single file and make its content available as a string.
-@st.cache(show_spinner=False)
-def get_file_content_as_string(path):
-    url = 'https://raw.githubusercontent.com/aoyingxue/COMPAS-racial-bias/master/' + path
-    response = urllib.request.urlopen(url)
-    return response.read().decode("utf-8")

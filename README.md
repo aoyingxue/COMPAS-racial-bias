@@ -1,9 +1,10 @@
 # COMPAS-racial-bias
  Azure Hackathon: COMPAS Racial Bias and Predict Scores
 
-## 
+## Packages and Platforms
 1. Streamlit and Awesome Streamlit for providing the template for the web app visualizer.
-2. Flask to 
+2. Flask 
+3. Microsoft Azure 
 
 ## Installation
 ### Create virtual environment 
