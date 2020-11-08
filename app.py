@@ -12,10 +12,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
     # Navigation pages: HOME, Descriptive Analysis, Regression Model, Score Prediction, ABOUT
     
-    # Render MARKDOWN 
-    # readme_text = st.markdown(get_file_content_as_string("README.md"))
+    # Initialize MARKDOWN Rendering
     home_text=st.markdown(get_file_content_as_string("pages/home.md"))
-
 
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
     st.sidebar.title("Navigation")
@@ -24,31 +22,26 @@ def main():
     if app_mode == "HOME":
         st.sidebar.success("To continue, select the page you'd like to read.")
     elif app_mode == "Descriptive Analysis":
-        # empty the home page 
-        home_text.empty()
-        st.title("Descriptive Analysis")
+        home_text.empty() # empty the home page 
         descriptive_analysis() # print out the descriptive page
         # st.code(get_file_content_as_string("streamlit_app.py"))
     elif app_mode == "Regression Model":
-        # empty the home page 
-        home_text.empty()
+        home_text.empty() # empty the home page 
         # function to run the model
         run_the_model()
     elif app_mode == "Score Prediction":
-        # empty the home page 
-        home_text.empty()
+        home_text.empty() # empty the home page 
         # function to run the prediction
         run_the_prediction()
     elif app_mode == "ABOUT":
-        # empty the home page 
-        home_text.empty()
-
+        home_text.empty() # empty the home page 
+        about_text=st.markdown(get_file_content_as_string("pages/about.md"))
 
 
 ###### Functions ######
 
 # Read a written markdown content available as a string
-# @st.cache()
+@st.cache()
 def get_file_content_as_string(path):
     with open(path, 'r') as file:
         data = file.read()
