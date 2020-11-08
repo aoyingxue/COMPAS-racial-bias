@@ -5,8 +5,14 @@ import numpy as np
 import os, urllib
 import matplotlib.pyplot as plt
 
+# Python Scripts
+import pages.descriptive_analysis as da
+import pages.model as md
+import pages.score_prediction as spd
+
 # URLError workaround
 import ssl
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 # start execution in a main() function
@@ -34,22 +40,26 @@ def main():
 
     elif app_mode == "Descriptive Analysis":
         home_text.empty()  # empty the home page and clear cache
-        descriptive_analysis()  # print out the descriptive page
+        st.title("Descriptive Analysis")
+        da.descriptive_analysis()  # print out the descriptive page
 
     elif app_mode == "Regression Model":
-        home_text.empty()  
-        run_the_model()  # function to run the model
+        home_text.empty()
+        st.title("Regression Model")
+        md.run_the_model()  # function to run the model
 
     elif app_mode == "Score Prediction":
-        home_text.empty() 
-        run_the_prediction() # function to run the prediction
+        home_text.empty()
+        st.title("Score Prediction")
+        spd.run_the_prediction()  # function to run the prediction
 
     elif app_mode == "Source Code (ipynb)":
-        home_text.empty()  
-        st.code(get_file_content_as_string("app.py")) # change to the jupyter notebook
+        home_text.empty()
+        st.title("Source Code (ipynb)")
+        st.code(get_file_content_as_string("app.py"))  # change to the jupyter notebook
 
     elif app_mode == "ABOUT":
-        home_text.empty()  
+        home_text.empty()
         about_text = st.markdown(get_file_content_as_string("README.md"))
 
 
@@ -61,59 +71,6 @@ def get_file_content_as_string(path):
     with open(path, "r") as file:
         data = file.read()
     return data
-
-
-# read data from cache
-@st.cache
-def load_data(nrows, dataset_name):
-    if dataset_name == "COMPAS Raw Scores":
-        path = "data/compas-scores-raw.csv"
-    elif dataset_name == "Compass Score after parsing and cleaning":
-        path = "data/cox-violent-parsed.csv"
-    data = pd.read_csv(path, nrows=nrows)
-    # preprocess goes from here
-    return data
-
-
-def descriptive_analysis():
-    st.title("Descriptive Analysis")
-    dataset_name = st.sidebar.selectbox(
-        "Select Dataset",
-        ("COMPAS Raw Scores", "Compass Score after parsing and cleaning"),
-    )
-    data = load_data(10000, dataset_name)
-
-    # checkbox
-    if st.checkbox("View Chosen Data: %s" % dataset_name):
-        st.subheader(dataset_name)
-        st.dataframe(data)
-
-    # code box
-    # with st.echo():
-    #     st.write(test_data.head())
-
-    # slider
-    # st.slider()
-
-    with st.beta_container():
-        var = st.selectbox("Choose a Variable", data.columns)
-        st.write("## Histogram of %s" % var)
-        # histogram
-        fig = plt.figure()
-        plt.hist(data[var])
-        plt.xticks(rotation=270)
-        st.pyplot(plt)
-    # dropdown to select the variable
-
-
-## Model Page
-def run_the_model():
-    st.title("Regression Model")
-
-
-## Prediction Page
-def run_the_prediction():
-    st.title("Score Prediction")
 
 
 # Execute the main function
