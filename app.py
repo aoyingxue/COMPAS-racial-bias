@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 
 # URLError workaround
 import ssl
-
 ssl._create_default_https_context = ssl._create_unverified_context
 
 # start execution in a main() function
@@ -48,10 +47,10 @@ def main():
     elif app_mode == "Source Code (ipynb)":
         home_text.empty()  
         st.code(get_file_content_as_string("app.py")) # change to the jupyter notebook
-        
+
     elif app_mode == "ABOUT":
         home_text.empty()  
-        about_text = st.markdown(get_file_content_as_string("pages/about.md"))
+        about_text = st.markdown(get_file_content_as_string("README.md"))
 
 
 ###### Functions ######
