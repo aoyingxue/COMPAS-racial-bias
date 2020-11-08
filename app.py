@@ -42,7 +42,7 @@ def main():
     elif app_mode == "Score Prediction":
         home_text.empty() # empty the home page
         run_the_prediction() # function to run the prediction
-    elif app_mode == "Source Code (ipynb)"":
+    elif app_mode == "Source Code (ipynb)":
         home_text.empty()  # empty the home page
         st.code(get_file_content_as_string("app.py")) # change to the jupyter notebook
     elif app_mode == "ABOUT":
