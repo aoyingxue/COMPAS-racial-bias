@@ -32,28 +32,32 @@ def main():
     )
     if app_mode == "HOME":
         st.sidebar.success("To continue, select the page you'd like to read.")
+
     elif app_mode == "Descriptive Analysis":
-        home_text.empty()  # empty the home page
+        home_text.empty()  # empty the home page and clear cache
         descriptive_analysis()  # print out the descriptive page
-        # st.code(get_file_content_as_string("streamlit_app.py"))
+
     elif app_mode == "Regression Model":
-        home_text.empty()  # empty the home page
+        home_text.empty()  
         run_the_model()  # function to run the model
+
     elif app_mode == "Score Prediction":
-        home_text.empty() # empty the home page
+        home_text.empty() 
         run_the_prediction() # function to run the prediction
+
     elif app_mode == "Source Code (ipynb)":
-        home_text.empty()  # empty the home page
+        home_text.empty()  
         st.code(get_file_content_as_string("app.py")) # change to the jupyter notebook
+        
     elif app_mode == "ABOUT":
-        home_text.empty()  # empty the home page
+        home_text.empty()  
         about_text = st.markdown(get_file_content_as_string("pages/about.md"))
 
 
 ###### Functions ######
 
 # Read a written markdown content available as a string
-@st.cache()
+@st.cache
 def get_file_content_as_string(path):
     with open(path, "r") as file:
         data = file.read()
