@@ -7,7 +7,7 @@ Python-based web application, and back-end deployment on Microsoft Azure are don
 Karlie Fang, MSCA in WashU, is responsible for Model building in Jupyter Notebook. 
 
 ## Packages and Platforms
-1. Streamlit and Awesome Streamlit for providing the template for the web app visualizer.
+1. Streamlit for providing the interactive web app template.
 2. Flask 
 3. Microsoft Azure 
 
@@ -17,6 +17,8 @@ If running on Python 3, the `venv` is built-in:
 `python3 -m venv env`
 and then activate the environment:
 `source env/bin/activate`
+### Run streamlit app
+`streamlit run app.py`
 
 ## Dependencies
 ### Add or remove dependencies
