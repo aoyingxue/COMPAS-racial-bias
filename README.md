@@ -1,10 +1,6 @@
 # About COMPAS Racial Bias
  Azure Hackathon: COMPAS Racial Bias and Predict Scores
 
-## Authors
-Yuki Ao, responsible for the implementation of the whole project: Python-based web application, back-end deployment on Microsoft Azure, Building the model and predicting the scores. 
-She is currently enrolled in Master of Science in Customer Analytics (MSCA) in Washington University in St. Louis. Actively in job hunting. Feel free to connect at [LinkedIn](https://www.linkedin.com/in/aoyingxue/) or [GitHub](https://github.com/aoyingxue). 
-
 ## Packages and Platforms
 1. Python 3.5
 2. Streamlit for providing the interactive web app template.
