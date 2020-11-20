@@ -1,15 +1,16 @@
-# COMPAS Racial Bias
+# About COMPAS Racial Bias
  Azure Hackathon: COMPAS Racial Bias and Predict Scores
 
 ## Authors
-Python-based web application, and back-end deployment on Microsoft Azure are done by Yuki Ao (She/Her), Master of Science in Customer Analytics (MSCA) in Washington University in St. Louis. Feel free to connect at [LinkedIn](https://www.linkedin.com/in/aoyingxue/) or [GitHub](https://github.com/aoyingxue). 
-
-Karlie Fang, MSCA in WashU, is responsible for Model building in Jupyter Notebook. 
+### Yuki (Yingxue) Ao (She/Her)
+Responsible for the implementation of the whole project: Python-based web application, back-end deployment on Microsoft Azure, Building the model and predicting the scores. 
+She is currently enrolled in Master of Science in Customer Analytics (MSCA) in Washington University in St. Louis. Actively in job hunting. Feel free to connect at [LinkedIn](https://www.linkedin.com/in/aoyingxue/) or [GitHub](https://github.com/aoyingxue). 
 
 ## Packages and Platforms
-1. Streamlit for providing the interactive web app template.
-2. Flask 
-3. Microsoft Azure 
+1. Python 3.5
+2. Streamlit for providing the interactive web app template.
+3. Google Colab Notebooks for building the models and predicting the scores.
+4. Flask and Microsoft Azure to deploy the model and website.
 
 ## Installation
 ### Create virtual environment 
@@ -17,6 +18,8 @@ If running on Python 3, the `venv` is built-in:
 `python3 -m venv env`
 and then activate the environment:
 `source env/bin/activate`
+Install dependencies (details shown below).
+`pip3 install -r requirements.txt`
 ### Run streamlit app
 `streamlit run app.py`
 
