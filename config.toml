@@ -76,6 +76,7 @@ port = 80
 # Default: true
 enableCORS = false
 
+enableWebsocketCompression=false
 
 [browser]
 
