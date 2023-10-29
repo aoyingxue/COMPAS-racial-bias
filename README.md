@@ -26,4 +26,4 @@ Add/remove dependencies at any point by updating requirements.txt (Python deps) 
 
 It is best practice to pin Streamlit version in requirements.txt. Otherwise, the version may be auto-upgraded at any point without your knowledge, which could lead to undesired results (e.g. when we deprecate a feature in Streamlit).
 
-* Sadly after the competition Microsoft Azure student account has expired. The website may not be working.*
+*Sadly after the competition Microsoft Azure student account has expired. The website may not be working or working slower than usual.*
